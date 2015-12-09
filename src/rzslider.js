@@ -667,6 +667,9 @@
           var tick = {
             selected: this.isTickSelected(value)
           };
+          if (tick.selected && this.options.getSelectionBarColor) {
+            tick.style = {backgroundColor: this.options.getSelectionBarColor()};
+          }
           if (this.options.showTicksValues) {
             tick.value = this.getDisplayValue(value);
             if (this.options.ticksValuesTooltip) {
@@ -865,7 +868,7 @@
       updateSelectionBar: function() {
         this.setDimension(this.selBar, Math.abs(this.maxH.rzsp - this.minH.rzsp) + this.handleHalfDim);
         this.setPosition(this.selBar, this.range ? this.minH.rzsp + this.handleHalfDim : 0);
-        if(this.options.getSelectionBarColor) {
+        if (this.options.getSelectionBarColor) {
           var color = this.options.getSelectionBarColor();
           this.selBarChild.css({backgroundColor: color});
         }
