@@ -513,6 +513,12 @@
           this.unbindEvents();
         else if (!this.options.disabled || !this.options.readOnly)
           this.bindEvents();
+        // TODO modify by szl
+        this.minH.off();
+        this.maxH.off();
+        this.fullBar.off();
+        // this.selBar.off();
+        this.ticks.off();
       },
 
       /**
